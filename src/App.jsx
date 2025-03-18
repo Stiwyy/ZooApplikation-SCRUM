@@ -1,12 +1,16 @@
-import { useState } from 'react'
+
 import './App.css'
-import Map from "./assets/Map.jsx";
+import Navbar from "./components/Navbar.jsx";
 
 function App() {
-
   return (
     <>
-        <Map/>
+      <Navbar />
+      <main>
+        <h1>jdfjdsf</h1>
+        <p>Fjdflsdjfjkl</p>
+      </main>
+
     </>
   )
 }
