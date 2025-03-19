@@ -5,10 +5,6 @@ function App() {
   return (
     <>
       <Navbar />
-      <main>
-        <h1>jdfjdsf</h1>
-        <p>Fjdflsdjfjkl</p>
-      </main>
     </>
   )
 }
