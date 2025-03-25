@@ -6,6 +6,7 @@ import ZooLogo from "./assets/zoo_logo.png";
 function App() {
   return (
     <>
+
       <main>
       <div className="grid grid-cols-3 gap-4 w-full mb-10">
         <div className="">
@@ -20,6 +21,7 @@ function App() {
         <h1>jdfjdsf</h1>
         <p>Fjdflsdjfjkl</p>
       </main>
+
     </>
   )
 }
