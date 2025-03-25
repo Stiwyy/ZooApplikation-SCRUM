@@ -1,0 +1,14 @@
+body {
+    background-image: url("../assets/qrcode-hintergrund.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.qrdiv{
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    width: 500px;
+    height: 500px;
+
+}
