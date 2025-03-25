@@ -4,8 +4,8 @@ import { Button } from "./Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import Test from "../page/Testpage.jsx";
-import Page2 from "../page/Page2.jsx";
-import Page3 from "../page/Page3.jsx";
+import Qrcode from "../components/QrCode.jsx"
+
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +50,7 @@ export default function Navbar() {
                                     <Button className="w-full" onClick={() => handlePageChange("Test")}>Home</Button>
                                 </Link>
                                 <Link to="/page2">
-                                    <Button className="w-full" onClick={() => handlePageChange("page2")}>Attraktionen</Button>
+                                    <Button className="w-full" onClick={() => handlePageChange("Qrcode")}>Qrcode</Button>
                                 </Link>
                                 <Link to="/page3">
                                     <Button className="w-full" onClick={() => handlePageChange("page3")}>QR-Code scannen</Button>
@@ -66,7 +66,7 @@ export default function Navbar() {
 
             <div className="p-4">
                 {activePage === "Test" && <Test />}
-                {activePage === "page2" && <Page2 />}
+                {activePage === "Qrcode" && <Qrcode />}
                 {activePage === "page3" && <Page3 />}
             </div>
         </div>
