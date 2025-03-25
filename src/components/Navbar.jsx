@@ -39,14 +39,19 @@ export default function Navbar() {
                     ref={menuRef}
                 >
                     <div>
+
+
                         <Link to="/page1">
-                            <Button className="w-full">Page 1</Button>
+                            <Button className="w-full">Home</Button>
                         </Link>
                         <Link to="/page2">
-                            <Button className="w-full">Page 2</Button>
+                            <Button className="w-full">Attraktionen</Button>
                         </Link>
                         <Link to="/page3">
-                            <Button className="w-full">Page 3</Button>
+                            <Button className="w-full">QR-Code scannen</Button>
+                        </Link>
+                        <Link to="/page4">
+                            <Button className="w-full">Impressum</Button>
                         </Link>
                     </div>
                 </motion.div>
