@@ -11,6 +11,9 @@ function QrCode() {
         const onScanSuccess = (decodedText, decodedResult) => {
             // Handle success condition
             console.log(`Scan result: ${decodedText}`, decodedResult);
+            if (decodedResult.decodedText === "elephant"){
+                window.location.replace("https://de.wikipedia.org/wiki/Elefanten");
+            }
         };
 
         html5QrcodeScanner.render(onScanSuccess);
