@@ -47,17 +47,17 @@ export default function Navbar({ onPageChange }) { // Neue Prop hinzufügen
                             className="absolute top-full left-0 bg-white shadow-md rounded-md mt-2 z-10"
                         >
                             <div className="flex flex-col">
-                                <Link to="/page1">
+                                <Link to="/Home">
                                     <Button className="w-full" onClick={() => handlePageChange("Test")}>Home</Button>
                                 </Link>
-                                <Link to="/page2">
+                                <Link to="/QrCode">
                                     <Button className="w-full" onClick={() => handlePageChange("Qrcode")}>Qrcode</Button>
                                 </Link>
-                                <Link to="/page3">
-                                    <Button className="w-full" onClick={() => handlePageChange("page3")}>QR-Code scannen</Button>
+                                <Link to="/Datenschutzerklaerung">
+                                    <Button className="w-full" onClick={() => handlePageChange("Datenschutzerklaerung")}>Datenschutzerklaerung</Button>
                                 </Link>
-                                <Link to="/page4">
-                                    <Button className="w-full">Impressum</Button>
+                                <Link to="/Impressum">
+                                    <Button className="w-full" onClick={() => handlePageChange("Impressum")}>Impressum</Button>
                                 </Link>
                             </div>
                         </motion.div>

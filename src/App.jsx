@@ -3,11 +3,19 @@ import './App.css';
 import Navbar from "./components/Navbar.jsx";
 import ZooLogo from "./assets/zoo_logo.png";
 import QrCode from "./components/QrCode.jsx";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Test from "./page/Testpage.jsx"
+import Impressum from "./components/Impressum.jsx";
+import Datenschutzerklaerung from "./components/Datenschutzerklaerung.jsx";
 
 function App() {
-    const [activeComponent, setActiveComponent] = useState("Test"); // Neuer Zustand für die aktive Komponente
+    const [activeComponent, setActiveComponent] = useState(""); // Neuer Zustand für die aktive Komponente
+
+    useEffect(() => {
+        // Initialisiert den Zustand basierend auf dem letzten Abschnitt der URL
+        const path = window.location.pathname.split('/').pop();
+        setActiveComponent(path); // Setzt den Zustand auf den letzten Teil der URL
+    }, []); // Nur beim ersten Laden der Seite ausführen
 
     return (
         <>
@@ -23,10 +31,10 @@ function App() {
                 </div>
 
                 <div>
-                    {/* Dynamisch die Komponente basierend auf dem aktiven Zustand anzeigen */}
                     {activeComponent === "Qrcode" && <QrCode />}
                     {activeComponent === "Test" && <Test />}
-                    {/* Du kannst hier weitere Komponenten hinzufügen, wie z.B. Test */}
+                    {activeComponent === "Impressum" && <Impressum />}
+                    {activeComponent === "Datenschutzerklaerung" && <Datenschutzerklaerung />}
                 </div>
             </main>
         </>
