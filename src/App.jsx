@@ -1,20 +1,20 @@
-// App.jsx
 import './App.css';
 import Navbar from "./components/Navbar.jsx";
 import ZooLogo from "./assets/zoo_logo.png";
 import QrCode from "./components/QrCode.jsx";
 import { useState } from 'react';
 import Test from "./page/Testpage.jsx"
+import Home from "./page/Home.jsx";
 
 function App() {
-    const [activeComponent, setActiveComponent] = useState("Test"); // Neuer Zustand für die aktive Komponente
+    const [activeComponent, setActiveComponent] = useState("Home");
 
     return (
         <>
             <main>
                 <div className="grid grid-cols-3 gap-4 w-full mb-10">
                     <div>
-                        <Navbar onPageChange={setActiveComponent} /> {/* Callback übergeben */}
+                        <Navbar onPageChange={setActiveComponent} />
                     </div>
                     <div></div>
                     <div className="place-self-end">
@@ -23,10 +23,9 @@ function App() {
                 </div>
 
                 <div>
-                    {/* Dynamisch die Komponente basierend auf dem aktiven Zustand anzeigen */}
                     {activeComponent === "Qrcode" && <QrCode />}
                     {activeComponent === "Test" && <Test />}
-                    {/* Du kannst hier weitere Komponenten hinzufügen, wie z.B. Test */}
+                    {activeComponent === "Home" && <Home/>}
                 </div>
             </main>
         </>

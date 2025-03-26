@@ -4,8 +4,6 @@ import { Menu, X } from "lucide-react";
 import { Button } from "./Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import Test from "../page/Testpage.jsx";
-import Qrcode from "../components/QrCode.jsx";
 
 export default function Navbar({ onPageChange }) { // Neue Prop hinzufügen
     const [isOpen, setIsOpen] = useState(false);
@@ -47,8 +45,8 @@ export default function Navbar({ onPageChange }) { // Neue Prop hinzufügen
                             className="absolute top-full left-0 bg-white shadow-md rounded-md mt-2 z-10"
                         >
                             <div className="flex flex-col">
-                                <Link to="/page1">
-                                    <Button className="w-full" onClick={() => handlePageChange("Test")}>Home</Button>
+                                <Link to="/">
+                                    <Button className="w-full" onClick={() => handlePageChange("Home")}>Home</Button>
                                 </Link>
                                 <Link to="/page2">
                                     <Button className="w-full" onClick={() => handlePageChange("Qrcode")}>Qrcode</Button>
