@@ -9,9 +9,12 @@ import Home from "./page/Home.jsx";
 function App() {
     const [activeComponent, setActiveComponent] = useState("Home");
 
+    const handleClick = () =>{
+
+    }
+
     return (
-        <>
-            <main>
+        <div className="relative h-full">
                 <div className="grid grid-cols-3 gap-4 w-full mb-10">
                     <div>
                         <Navbar onPageChange={setActiveComponent} />
@@ -27,8 +30,12 @@ function App() {
                     {activeComponent === "Test" && <Test />}
                     {activeComponent === "Home" && <Home/>}
                 </div>
-            </main>
-        </>
+
+                <div className="flex flex-col items-center gap-4 absolute bottom-0 left-0">
+                <button className="w-48 rounded-xl">Attraktionen</button>
+                <button className="w-48 rounded-xl">Kind suchen</button>
+                </div>
+        </div>
     );
 }
 
