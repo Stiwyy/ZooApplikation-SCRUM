@@ -27,9 +27,8 @@ function QrCode() {
 
     return (
         <>
-            <div className="flex items-center justify-center min-h-screen">
+            <div className="flex items-center justify-center">
                 <div className="qrdiv" id="reader"></div>
-                <p className="mt-4 text-center">Scan Qr-Code</p>
             </div>
         </>
     );
