@@ -1,29 +1,36 @@
-
-import './App.css'
+// App.jsx
+import './App.css';
 import Navbar from "./components/Navbar.jsx";
 import ZooLogo from "./assets/zoo_logo.png";
+import QrCode from "./components/QrCode.jsx";
+import { useState } from 'react';
+import Test from "./page/Testpage.jsx"
 
 function App() {
-  return (
-    <>
+    const [activeComponent, setActiveComponent] = useState("Test"); // Neuer Zustand für die aktive Komponente
 
-      <main>
-      <div className="grid grid-cols-3 gap-4 w-full mb-10">
-        <div className="">
-        <Navbar />
-        </div>
-        <div className=""></div>
-        <div className="place-self-end">
-        <img src={ZooLogo} className="w-24"></img>
-        {/* <div className="m-auto" >1</div>*/}
-        </div>
-      </div>
-        <h1>jdfjdsf</h1>
-        <p>Fjdflsdjfjkl</p>
-      </main>
+    return (
+        <>
+            <main>
+                <div className="grid grid-cols-3 gap-4 w-full mb-10">
+                    <div>
+                        <Navbar onPageChange={setActiveComponent} /> {/* Callback übergeben */}
+                    </div>
+                    <div></div>
+                    <div className="place-self-end">
+                        <img src={ZooLogo} className="w-24" alt="Zoo Logo" />
+                    </div>
+                </div>
 
-    </>
-  )
+                <div>
+                    {/* Dynamisch die Komponente basierend auf dem aktiven Zustand anzeigen */}
+                    {activeComponent === "Qrcode" && <QrCode />}
+                    {activeComponent === "Test" && <Test />}
+                    {/* Du kannst hier weitere Komponenten hinzufügen, wie z.B. Test */}
+                </div>
+            </main>
+        </>
+    );
 }
 
-export default App
+export default App;

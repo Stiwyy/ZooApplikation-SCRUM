@@ -1,13 +1,13 @@
+// Navbar.jsx
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import Test from "../page/Testpage.jsx";
-import Qrcode from "../components/QrCode.jsx"
+import Qrcode from "../components/QrCode.jsx";
 
-
-export default function Navbar() {
+export default function Navbar({ onPageChange }) { // Neue Prop hinzufügen
     const [isOpen, setIsOpen] = useState(false);
     const [activePage, setActivePage] = useState("page1");
     const menuRef = useRef(null);
@@ -27,6 +27,7 @@ export default function Navbar() {
     const handlePageChange = (page) => {
         setActivePage(page);
         setIsOpen(false);
+        if (onPageChange) onPageChange(page); // Callback aufrufen
     };
 
     return (
@@ -63,12 +64,6 @@ export default function Navbar() {
                     )}
                 </AnimatePresence>
             </nav>
-
-            <div className="p-4">
-                {activePage === "Test" && <Test />}
-                {activePage === "Qrcode" && <Qrcode />}
-                {activePage === "page3" && <Page3 />}
-            </div>
         </div>
     );
 }
