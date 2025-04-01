@@ -32,16 +32,17 @@ function App() {
 
             <div>
                 {activeComponent === "Qrcode" && <QrCode />}
-                {activeComponent === "Test" && <Test />}
                 {activeComponent === "Home" && <Home />}
                 {activeComponent === "Impressum" && <Impressum />}
                 {activeComponent === "Datenschutzerklaerung" && <Datenschutzerklaerung />}
             </div>
 
-            <div className="flex flex-col items-center gap-4 absolute bottom-0 left-0">
-                <button className="w-48 rounded-xl">Attraktionen</button>
-                <button className="w-48 rounded-xl">Kind suchen</button>
-            </div>
+            {!(activeComponent === "Datenschutzerklaerung" || activeComponent === "Impressum") && (
+                <div className="flex flex-col items-center gap-4 absolute bottom-0 left-0">
+                    <button className="w-48 rounded-xl">Attraktionen</button>
+                    <button className="w-48 rounded-xl">Kind suchen</button>
+                </div>
+            )}
         </div>
     );
 }
