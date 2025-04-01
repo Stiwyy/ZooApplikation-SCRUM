@@ -9,10 +9,6 @@ import Home from "./page/Home.jsx";
 function App() {
     const [activeComponent, setActiveComponent] = useState("Home");
 
-    const handleClick = () =>{
-
-    }
-
     return (
         <div className="relative h-full">
                 <div className="grid grid-cols-3 gap-4 w-full mb-10">
