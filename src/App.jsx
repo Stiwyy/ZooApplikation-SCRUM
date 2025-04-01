@@ -1,43 +1,48 @@
-// App.jsx
 import './App.css';
 import Navbar from "./components/Navbar.jsx";
 import ZooLogo from "./assets/zoo_logo.png";
 import QrCode from "./components/QrCode.jsx";
 import { useState, useEffect } from 'react';
-import Test from "./page/Testpage.jsx"
+import Test from "./page/Testpage.jsx";
+import Home from "./page/Home.jsx";
 import Impressum from "./components/Impressum.jsx";
 import Datenschutzerklaerung from "./components/Datenschutzerklaerung.jsx";
 
 function App() {
-    const [activeComponent, setActiveComponent] = useState(""); // Neuer Zustand für die aktive Komponente
+    const [activeComponent, setActiveComponent] = useState("Home");
 
     useEffect(() => {
-        // Initialisiert den Zustand basierend auf dem letzten Abschnitt der URL
         const path = window.location.pathname.split('/').pop();
-        setActiveComponent(path); // Setzt den Zustand auf den letzten Teil der URL
-    }, []); // Nur beim ersten Laden der Seite ausführen
+        if (path) {
+            setActiveComponent(path);
+        }
+    }, []);
 
     return (
-        <>
-            <main>
-                <div className="grid grid-cols-3 gap-4 w-full mb-10">
-                    <div>
-                        <Navbar onPageChange={setActiveComponent} /> {/* Callback übergeben */}
-                    </div>
-                    <div></div>
-                    <div className="place-self-end">
-                        <img src={ZooLogo} className="w-24" alt="Zoo Logo" />
-                    </div>
-                </div>
-
+        <div className="relative h-full">
+            <div className="grid grid-cols-3 gap-4 w-full mb-10">
                 <div>
-                    {activeComponent === "Qrcode" && <QrCode />}
-                    {activeComponent === "Test" && <Test />}
-                    {activeComponent === "Impressum" && <Impressum />}
-                    {activeComponent === "Datenschutzerklaerung" && <Datenschutzerklaerung />}
+                    <Navbar onPageChange={setActiveComponent} />
                 </div>
-            </main>
-        </>
+                <div></div>
+                <div className="place-self-end">
+                    <img src={ZooLogo} className="w-24" alt="Zoo Logo" />
+                </div>
+            </div>
+
+            <div>
+                {activeComponent === "Qrcode" && <QrCode />}
+                {activeComponent === "Test" && <Test />}
+                {activeComponent === "Home" && <Home />}
+                {activeComponent === "Impressum" && <Impressum />}
+                {activeComponent === "Datenschutzerklaerung" && <Datenschutzerklaerung />}
+            </div>
+
+            <div className="flex flex-col items-center gap-4 absolute bottom-0 left-0">
+                <button className="w-48 rounded-xl">Attraktionen</button>
+                <button className="w-48 rounded-xl">Kind suchen</button>
+            </div>
+        </div>
     );
 }
 
