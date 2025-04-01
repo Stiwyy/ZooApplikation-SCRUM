@@ -49,3 +49,10 @@
   height: 100vh;
   zIndex: -1;
 }
+
+.textBackground{
+  padding: 30px;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+
+}
