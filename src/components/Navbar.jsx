@@ -5,9 +5,9 @@ import { Button } from "./Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
-export default function Navbar({ onPageChange }) { // Neue Prop hinzufügen
+export default function Navbar({ onPageChange }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [activePage, setActivePage] = useState("page1");
+    const [activePage, setActivePage] = useState("Home");
     const menuRef = useRef(null);
 
     const toggleMenu = () => setIsOpen(prev => !prev);
@@ -25,7 +25,7 @@ export default function Navbar({ onPageChange }) { // Neue Prop hinzufügen
     const handlePageChange = (page) => {
         setActivePage(page);
         setIsOpen(false);
-        if (onPageChange) onPageChange(page); // Callback aufrufen
+        if (onPageChange) onPageChange(page);
     };
 
     return (
@@ -45,17 +45,20 @@ export default function Navbar({ onPageChange }) { // Neue Prop hinzufügen
                             className="absolute top-full left-0 bg-white shadow-md rounded-md mt-2 z-10"
                         >
                             <div className="flex flex-col">
-                                <Link to="/">
+                                <Link to="/Home">
                                     <Button className="w-full" onClick={() => handlePageChange("Home")}>Home</Button>
                                 </Link>
-                                <Link to="/page2">
+                                <Link to="/QrCode">
                                     <Button className="w-full" onClick={() => handlePageChange("Qrcode")}>Qrcode</Button>
                                 </Link>
-                                <Link to="/page3">
-                                    <Button className="w-full" onClick={() => handlePageChange("page3")}>QR-Code scannen</Button>
+                                <Link to="/Datenschutzerklaerung">
+                                    <Button className="w-full" onClick={() => handlePageChange("Datenschutzerklaerung")}>Datenschutzerklärung</Button>
                                 </Link>
-                                <Link to="/page4">
-                                    <Button className="w-full">Impressum</Button>
+                                <Link to="/Impressum">
+                                    <Button className="w-full" onClick={() => handlePageChange("Impressum")}>Impressum</Button>
+                                </Link>
+                                <Link to="/Test">
+                                    <Button className="w-full" onClick={() => handlePageChange("Test")}>Testpage</Button>
                                 </Link>
                             </div>
                         </motion.div>
