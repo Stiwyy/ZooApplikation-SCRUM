@@ -7,6 +7,8 @@ import Test from "./page/Testpage.jsx";
 import Home from "./page/Home.jsx";
 import Impressum from "./components/Impressum.jsx";
 import Datenschutzerklaerung from "./components/Datenschutzerklaerung.jsx";
+import Attraktionen from "./components/Attraktionen.jsx"
+import Map from "./components/Map.jsx";
 
 function App() {
     const [activeComponent, setActiveComponent] = useState("Home");
@@ -35,14 +37,22 @@ function App() {
                 {activeComponent === "Home" && <Home />}
                 {activeComponent === "Impressum" && <Impressum />}
                 {activeComponent === "Datenschutzerklaerung" && <Datenschutzerklaerung />}
+                {activeComponent === "Attraktionen" && <Attraktionen/>}
+                {activeComponent === "Map" && <Map />}
             </div>
 
-            {!(activeComponent === "Datenschutzerklaerung" || activeComponent === "Impressum") && (
+            {!(activeComponent === "Datenschutzerklaerung" || activeComponent === "Impressum" || activeComponent === "Qrcode" || activeComponent === "Attraktionen" ) && (
                 <div className="flex flex-col items-center gap-4 absolute bottom-0 left-0">
-                    <button className="w-48 rounded-xl">Attraktionen</button>
-                    <button className="w-48 rounded-xl">Kind suchen</button>
+                    <button
+                        className="w-48 rounded-xl bg-blue-500 text-white p-2 shadow"
+                        onClick={() => setActiveComponent("Attraktionen")}
+                    >
+                        Attraktionen
+                    </button>
+                    <button className="w-48 rounded-xl bg-gray-500 text-white p-2 shadow">Kind suchen</button>
                 </div>
             )}
+
         </div>
     );
 }

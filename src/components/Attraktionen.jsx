@@ -36,7 +36,7 @@ const attractions = [
 const ZooAttractions = () => {
     return (
         <div className="p-6">
-            <h2 className="text-3xl font-bold mb-6 text-center">Attraktionen im Zoo Zürich</h2>
+            <h2 className="text-3xl font-bold mb-6 text-center text-black">Attraktionen im Zoo Zürich</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {attractions.map((attraction, index) => (
                     <div key={index} className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
@@ -46,7 +46,7 @@ const ZooAttractions = () => {
                             className="w-full h-48 object-cover"
                         />
                         <div className="p-4">
-                            <h3 className="text-xl font-semibold mb-2">{attraction.name}</h3>
+                            <h3 className="text-2xl font-bold mb-6 text-center text-gray-900">{attraction.name}</h3>
                             <p className="text-gray-600 text-sm">{attraction.description}</p>
                         </div>
                     </div>
