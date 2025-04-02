@@ -44,7 +44,7 @@ export default function Navbar({ onPageChange }) {
                             ref={menuRef}
                             className="absolute top-full left-0 bg-transparent shadow-md rounded-md mt-2 z-10"
                         >
-                            <div className="flex flex-col">
+                            <div className="flex flex-col space-y-2">
                                 <Link to="/Home">
                                     <Button className="w-full" onClick={() => handlePageChange("Home")}>Home</Button>
                                 </Link>
@@ -62,6 +62,7 @@ export default function Navbar({ onPageChange }) {
                                 </Link>
                             </div>
                         </motion.div>
+
                     )}
                 </AnimatePresence>
             </nav>
