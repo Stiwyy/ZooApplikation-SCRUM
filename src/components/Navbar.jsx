@@ -42,7 +42,7 @@ export default function Navbar({ onPageChange }) {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             ref={menuRef}
-                            className="absolute top-full left-0 bg-white shadow-md rounded-md mt-2 z-10"
+                            className="absolute top-full left-0 bg-transparent shadow-md rounded-md mt-2 z-10"
                         >
                             <div className="flex flex-col">
                                 <Link to="/Home">
