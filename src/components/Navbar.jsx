@@ -1,15 +1,16 @@
+// Navbar.jsx
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./Button";
-import { motion } from "framer-motion";
-import Test from "../page/Testpage.jsx";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ onPageChange }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [activePage, setActivePage] = useState("page1");
+    const [activePage, setActivePage] = useState("Home");
     const menuRef = useRef(null);
 
-    const toggleMenu = () => setIsOpen(!isOpen);
+    const toggleMenu = () => setIsOpen(prev => !prev);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -18,45 +19,52 @@ export default function Navbar() {
             }
         };
         document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
+        return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
     const handlePageChange = (page) => {
         setActivePage(page);
         setIsOpen(false);
+        if (onPageChange) onPageChange(page);
     };
 
     return (
         <div>
-            <nav>
-                <div>
-                    <Button onClick={toggleMenu} variant="ghost" size="icon">
-                        {isOpen ? <X /> : <Menu />}
-                    </Button>
-                </div>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        ref={menuRef}
-                    >
-                        <div>
-                            <Button className="w-full" onClick={() => handlePageChange("Test")}>Page 1</Button>
-                            <Button className="w-full" onClick={() => handlePageChange("page2")}>Page 2</Button>
-                            <Button className="w-full" onClick={() => handlePageChange("page3")}>Page 3</Button>
-                        </div>
-                    </motion.div>
-                )}
-            </nav>
+            <nav className="relative">
+                <Button onClick={toggleMenu} variant="ghost" size="icon">
+                    {isOpen ? <X /> : <Menu />}
+                </Button>
 
-            <div className="p-4">
-                {activePage === "Test" && <Test />}
-                {activePage === "page2" && <Page2 />}
-                {activePage === "page3" && <Page3 />}
-            </div>
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            ref={menuRef}
+                            className="absolute top-full left-0 bg-white shadow-md rounded-md mt-2 z-10"
+                        >
+                            <div className="flex flex-col">
+                                <Link to="/Home">
+                                    <Button className="w-full" onClick={() => handlePageChange("Home")}>Home</Button>
+                                </Link>
+                                <Link to="/QrCode">
+                                    <Button className="w-full" onClick={() => handlePageChange("Qrcode")}>Qrcode</Button>
+                                </Link>
+                                <Link to="/Datenschutzerklaerung">
+                                    <Button className="w-full" onClick={() => handlePageChange("Datenschutzerklaerung")}>Datenschutzerklärung</Button>
+                                </Link>
+                                <Link to="/Impressum">
+                                    <Button className="w-full" onClick={() => handlePageChange("Impressum")}>Impressum</Button>
+                                </Link>
+                                <Link to="/Test">
+                                    <Button className="w-full" onClick={() => handlePageChange("Test")}>Testpage</Button>
+                                </Link>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </nav>
         </div>
     );
 }
