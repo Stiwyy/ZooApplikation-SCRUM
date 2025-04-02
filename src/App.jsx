@@ -7,11 +7,13 @@ import Test from "./page/Testpage.jsx";
 import Home from "./page/Home.jsx";
 import Impressum from "./components/Impressum.jsx";
 import Datenschutzerklaerung from "./components/Datenschutzerklaerung.jsx";
+import Gallerie from "./components/Gallerie.jsx";
 
 function App() {
     const [activeComponent, setActiveComponent] = useState("Home");
 
     useEffect(() => {
+        console.log(activeComponent);
         const path = window.location.pathname.split('/').pop();
         if (path) {
             setActiveComponent(path);
@@ -30,12 +32,13 @@ function App() {
                 </div>
             </div>
 
-            <div>
+            <div className="">
                 {activeComponent === "Qrcode" && <QrCode />}
                 {activeComponent === "Test" && <Test />}
                 {activeComponent === "Home" && <Home />}
                 {activeComponent === "Impressum" && <Impressum />}
                 {activeComponent === "Datenschutzerklaerung" && <Datenschutzerklaerung />}
+                {activeComponent === "gallerie" && <Gallerie/>}
             </div>
 
             <div className="flex flex-col items-center gap-4 absolute bottom-0 left-0">
