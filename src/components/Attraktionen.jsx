@@ -14,22 +14,22 @@ const attractions = [
     {
         name: 'Lewa-Savanne',
         description: 'Eine Nachbildung der afrikanischen Savanne mit Giraffen, Nashörnern, Zebras und weiteren Tierarten.',
-        imageUrl: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.zoo.ch%2Fde%2Fzoonews%2Fwillkommen-lewa&psig=AOvVaw0HiaCs8x-VFnRwq81aBYru&ust=1743660280155000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKjKg_LWuIwDFQAAAAAdAAAAABAE',
+        imageUrl: 'https://zoo-live.rokka.io/text_width_50_landscape_md_2x/79d9ab68bd85386daf3b49e23b09e97a977bdca9/2244-21958.jpg?h=8e29e890&itok=Xuu1XCSL',
     },
     {
         name: 'Australienanlage',
         description: 'Beheimatet Koalas, Wallabys, Emus und andere australische Tierarten.',
-        imageUrl: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.zoo.ch%2Fde%2Fzoobesuch%2Flebensraeume%2Faustralien&psig=AOvVaw1PXj6FGoOFDQ9wuc3xW65y&ust=1743660312680000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOi2pP7WuIwDFQAAAAAdAAAAABAE',
+        imageUrl: 'https://zoo-live.rokka.io/header_half_lg_2x/079dc3a5bda310c203bdc90b05d9dd934de336d8/2244-0019120-0.jpg?itok=94nB_pwt',
     },
     {
         name: 'Mongolische Steppe',
         description: 'Eine Darstellung der mongolischen Graslandschaft mit Kamelen, Yaks und Kaschmirziegen.',
-        imageUrl: 'https://www.zoo.ch/de/zoobesuch/lebensraeume/mongolische-steppe',
+        imageUrl: 'https://zoo-live.rokka.io/header_half_lg_2x/12bdcad99cb116cdf0ff5f30966d2e9ffee64199/2244-0015797-0.jpg?itok=wHJ0D-VA',
     },
     {
         name: 'Exotarium',
         description: 'Beherbergt zahlreiche Terrarien und Aquarien mit Fischen, Amphibien und Reptilien aus verschiedenen Regionen.',
-        imageUrl: 'https://www.neuco.ch/de/inspirationen/oeffentliche-gebaeude/exotarium-zoo-zuerich/',
+        imageUrl: 'https://zoo-live.rokka.io/header_half_lg_2x/a0990f342480ebedcf46c690d76c3d1a0629bd9f/20160928-160927-514-aquarium-2244-0.jpg?itok=7Kt_zX-Y',
     },
 ];
 
