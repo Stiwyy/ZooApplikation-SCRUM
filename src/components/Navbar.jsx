@@ -57,6 +57,10 @@ export default function Navbar({ onPageChange }) {
                                 <Link to="/Impressum">
                                     <Button className="w-full" onClick={() => handlePageChange("Impressum")}>Impressum</Button>
                                 </Link>
+                                <Link to="/User">
+                                    <Button className="w-full" onClick={() => handlePageChange("User")}>Account</Button>
+                                </Link>
+
                             </div>
                         </motion.div>
 

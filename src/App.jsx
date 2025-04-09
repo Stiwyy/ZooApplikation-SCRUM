@@ -9,6 +9,7 @@ import Impressum from "./components/Impressum.jsx";
 import Datenschutzerklaerung from "./components/Datenschutzerklaerung.jsx";
 import Attraktionen from "./components/Attraktionen.jsx"
 import Map from "./components/Map.jsx";
+import User from "./components/User.jsx"
 
 function App() {
     const [activeComponent, setActiveComponent] = useState("Home");
@@ -46,6 +47,7 @@ function App() {
                 {activeComponent === "Datenschutzerklaerung" && <Datenschutzerklaerung />}
                 {activeComponent === "Attraktionen" && <Attraktionen/>}
                 {activeComponent === "Map" && <Map />}
+                {activeComponent === "User" && <User />}
             </div>
 
             {!(activeComponent === "Datenschutzerklaerung" || activeComponent === "Impressum" || activeComponent === "Qrcode" || activeComponent === "Attraktionen" ) && (
