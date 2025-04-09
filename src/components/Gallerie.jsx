@@ -1,21 +1,39 @@
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import Bild1 from "../assets/Tier1.jpg";
+import Bild2 from "../assets/Tier2.jpg";
+import Bild3 from "../assets/Tier3.jpg";
+import Bild4 from "../assets/Tier4.jpg";
+import Bild5 from "../assets/Tier5.jpg";
+import Bild6 from "../assets/Tier6.jpg";
 
 function Gallerie() {
 
     const images = [
         {
-          original: "https://picsum.photos/id/1018/1000/600/",
-          thumbnail: "https://picsum.photos/id/1018/250/150/",
+          original: Bild1,
+          thumbnail: Bild1,
         },
         {
-          original: "https://picsum.photos/id/1015/1000/600/",
-          thumbnail: "https://picsum.photos/id/1015/250/150/",
+          original: Bild2,
+          thumbnail: Bild2,
         },
         {
-          original: "https://picsum.photos/id/1019/1000/600/",
-          thumbnail: "https://picsum.photos/id/1019/250/150/",
+          original: Bild3,
+          thumbnail: Bild3,
         },
+        {
+          original: Bild4,
+          thumbnail: Bild4,
+        },
+        {
+          original: Bild5,
+          thumbnail: Bild5,
+        },
+        {
+          original: Bild6,
+          thumbnail: Bild6,
+        }
       ];
 
     return (
