@@ -14,6 +14,13 @@ function App() {
     const [activeComponent, setActiveComponent] = useState("Home");
 
     useEffect(() => {
+        document.title = "Zoo Zürich";
+        document.querySelector("link[rel~='icon']")?.setAttribute("href", "/favicon.png") ||
+        document.head.appendChild(Object.assign(document.createElement("link"), { rel: "icon", href: "/favicon.png" }));
+    }, []);
+
+
+    useEffect(() => {
         const path = window.location.pathname.split('/').pop();
         if (path) {
             setActiveComponent(path);
