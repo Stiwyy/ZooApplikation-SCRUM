@@ -9,6 +9,7 @@ import Impressum from "./components/Impressum.jsx";
 import Datenschutzerklaerung from "./components/Datenschutzerklaerung.jsx";
 import Attraktionen from "./components/Attraktionen.jsx"
 import Map from "./components/Map.jsx";
+import User from "./components/User.jsx"
 import ZooMap from "./assets/zoomap.jpg"
 
 
@@ -38,10 +39,6 @@ function App() {
 
     return (<div className="relative h-full">
         <div className="grid grid-cols-3 gap-4 w-full mb-10">
-            <div>
-                <Navbar onPageChange={setActiveComponent}/>
-            </div>
-            <div></div>
             <div className="place-self-end">
                 <img src={ZooLogo} className="w-24" alt="Zoo Logo"/>
             </div>
@@ -55,6 +52,8 @@ function App() {
             {activeComponent === "Datenschutzerklaerung" && <Datenschutzerklaerung/>}
             {activeComponent === "Attraktionen" && <Attraktionen/>}
             {activeComponent === "Map" && <Map/>}
+            {activeComponent === "User" && <User />}
+            <Navbar onPageChange={setActiveComponent}/>
         </div>
 
 
