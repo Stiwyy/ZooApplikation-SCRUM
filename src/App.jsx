@@ -19,7 +19,6 @@ function App() {
         document.head.appendChild(Object.assign(document.createElement("link"), { rel: "icon", href: "/favicon.png" }));
     }, []);
 
-
     useEffect(() => {
         const path = window.location.pathname.split('/').pop();
         if (path) {
