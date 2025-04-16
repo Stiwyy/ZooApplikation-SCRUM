@@ -3,22 +3,22 @@ export default function Home() {
         {
             name: 'Christmann P.',
             rating: 5,
-            review: 'Sympathisch und Freundliche Herr J.Z',
+            review: 'Wirklich hilfreiches Tool',
         },
         {
             name: 'Pascal H.',
-            rating: 5,
-            review: 'Alles Bestens mega nett.',
+            rating: 4,
+            review: 'Die App ist schon sehr weit, ich konnte mich gut zurechtfinden',
         },
         {
             name: 'Roland K.',
             rating: 5,
-            review: 'Gutes Preis-Leistungs-Verhätnis',
+            review: 'Die App ist eine Abwechslung, und bringt die Features bringen grossen Mehrwert',
         },
         {
             name: 'Roman H.',
             rating: 5,
-            review: 'Sehr freundlich, hilfsbereit und effizient',
+            review: 'Effizienter, verlässlicher Assistent ',
         },
     ]
     return(
