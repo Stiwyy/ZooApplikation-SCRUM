@@ -1,20 +1,20 @@
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from "./components/Navbar.jsx";
 import ZooLogo from "./assets/zoo_logo.png";
 import QrCode from "./components/QrCode.jsx";
-import {useState, useEffect} from 'react';
-import Test from "./page/Testpage.jsx";
 import Home from "./page/Home.jsx";
 import Impressum from "./components/Impressum.jsx";
 import Datenschutzerklaerung from "./components/Datenschutzerklaerung.jsx";
-import Attraktionen from "./components/Attraktionen.jsx"
+import Attraktionen from "./components/Attraktionen.jsx";
 import Map from "./components/Map.jsx";
-import User from "./components/User.jsx"
-import ZooMap from "./assets/zoomap.jpg"
-
+import User from "./components/User.jsx";
+import Switch from '@mui/material/Switch';
 
 function App() {
     const [activeComponent, setActiveComponent] = useState("Home");
+    const [showAttraktionen, setShowAttraktionen] = useState(false);
+    const [showChildFinder, setShowChildFinder] = useState(false);
 
     useEffect(() => {
         document.title = "Zoo Zürich";
@@ -29,7 +29,6 @@ function App() {
         }
     }, []);
 
-
     useEffect(() => {
         const path = window.location.pathname.split('/').pop();
         if (path) {
@@ -37,33 +36,67 @@ function App() {
         }
     }, []);
 
-    return (<div className="relative h-full">
-        <div className="grid grid-cols-3 gap-4 w-full mb-10">
-            <div className="place-self-end">
-                <img src={ZooLogo} className="w-24" alt="Zoo Logo"/>
+    return (
+        <div className="relative h-full">
+            <Navbar onPageChange={setActiveComponent} />
+
+            <div className="flex justify-end pr-4">
+                <img src={ZooLogo} className="w-24" alt="Zoo Logo" />
             </div>
-        </div>
 
-
-        <div>
-            {activeComponent === "Qrcode" && <QrCode/>}
-            {activeComponent === "Home" && <Home/>}
-            {activeComponent === "Impressum" && <Impressum/>}
-            {activeComponent === "Datenschutzerklaerung" && <Datenschutzerklaerung/>}
-            {activeComponent === "Attraktionen" && <Attraktionen/>}
-            {activeComponent === "Map" && <Map/>}
+            {activeComponent === "Qrcode" && <QrCode />}
+            {activeComponent === "Home" && (
+                <Home
+                    showAttraktionen={showAttraktionen}
+                    showChildFinder={showChildFinder}
+                />
+            )}
+            {activeComponent === "Impressum" && <Impressum />}
+            {activeComponent === "Datenschutzerklaerung" && <Datenschutzerklaerung />}
+            {activeComponent === "Attraktionen" && <Attraktionen />}
+            {activeComponent === "Map" && <Map />}
             {activeComponent === "User" && <User />}
-            <Navbar onPageChange={setActiveComponent}/>
+
+            {!(["Datenschutzerklaerung", "Impressum", "Qrcode", "Attraktionen"].includes(activeComponent)) && (
+                <div className="flex flex-col items-center gap-4 absolute bottom-0 left-0 p-4 bg-white/80 rounded-tr-xl shadow-md">
+                    <div className="flex items-center">
+                        <span className="mr-2">Zoo Karte</span>
+                        <Switch
+                            checked={showAttraktionen}
+                            onChange={(e) => {
+                                if (e.target.checked) {
+                                    // Wenn Attraktionen aktiviert werden, deaktiviere Kind suchen
+                                    setShowAttraktionen(true);
+                                    setShowChildFinder(false);
+                                } else {
+                                    // Schalte Attraktionen aus
+                                    setShowAttraktionen(false);
+                                }
+                            }}
+                        />
+                        <span className="ml-2">Attraktionen</span>
+                    </div>
+                    <div className="flex items-center">
+                        <span className="mr-2">Standard</span>
+                        <Switch
+                            checked={showChildFinder}
+                            onChange={(e) => {
+                                if (e.target.checked) {
+                                    setShowChildFinder(true);
+                                    setShowAttraktionen(false);
+                                } else {
+                                    setShowChildFinder(false);
+                                }
+                            }}
+                            color="secondary"
+                        />
+                        <span className="ml-2">Kind suchen</span>
+                    </div>
+                </div>
+
+            )}
         </div>
-
-
-        {!(activeComponent === "Datenschutzerklaerung" || activeComponent === "Impressum" || activeComponent === "Qrcode" || activeComponent === "Attraktionen") && (
-            <div className="flex flex-col items-center gap-4 absolute bottom-0 left-0">
-                <button className="w-48 rounded-xl bg-blue-500 text-white p-2 shadow">Attraktionen</button>
-                <button className="w-48 rounded-xl bg-gray-500 text-white p-2 shadow">Kind suchen</button>
-            </div>)}
-
-    </div>);
+    );
 }
 
 export default App;
