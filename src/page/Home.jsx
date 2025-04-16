@@ -107,6 +107,7 @@ export default function Home() {
           </p>
         </div>
 
+
         <p className="text-gray-700 text-base dark:text-slate-300">
           "{cards[2].review}"
         </p>
