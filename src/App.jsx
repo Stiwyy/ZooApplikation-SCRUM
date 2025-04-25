@@ -9,6 +9,7 @@ import Datenschutzerklaerung from "./components/Datenschutzerklaerung.jsx";
 import Attraktionen from "./components/Attraktionen.jsx";
 import Map from "./components/Map.jsx";
 import User from "./components/User.jsx";
+import Review from "./components/Review.jsx"
 import Switch from '@mui/material/Switch';
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
             {activeComponent === "Attraktionen" && <Attraktionen />}
             {activeComponent === "Map" && <Map />}
             {activeComponent === "User" && <User />}
+            {activeComponent === "Review" && <Review />}
 
             {!(["Datenschutzerklaerung", "Impressum", "Qrcode", "Attraktionen"].includes(activeComponent)) && (
                 <div className="flex flex-col items-center gap-4 absolute bottom-0 left-0 p-4 bg-white/80 rounded-tr-xl shadow-md">
