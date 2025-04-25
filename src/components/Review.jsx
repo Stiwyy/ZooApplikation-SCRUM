@@ -23,8 +23,6 @@ export default function Review() {
     ]
     return(
         <>
-            <h1>Willkommen auf unserer Zooapplikation</h1>
-            <p>Hier kannst du deine Erfahrungen in unserem Zoo verbessern, mit vielen nützlichen Features. Da ist für jeden was dabei!</p><br/>
             <h2 className="text-4xl">Das sagen Nutzer</h2>
 
 <div className="grid grid-cols-4">
