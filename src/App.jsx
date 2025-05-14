@@ -8,7 +8,6 @@ import Impressum from "./components/Impressum.jsx";
 import Datenschutzerklaerung from "./components/Datenschutzerklaerung.jsx";
 import Attraktionen from "./components/Attraktionen.jsx";
 import Map from "./components/Map.jsx";
-import User from "./components/User.jsx";
 import Switch from '@mui/material/Switch';
 
 function App() {
